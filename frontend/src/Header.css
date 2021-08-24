@@ -1,0 +1,10 @@
+.header__style {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    height: 148px;
+
+}
+.header__style > img {
+    max-width: 360px;
+}
