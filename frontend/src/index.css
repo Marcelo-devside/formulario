@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,900;1,100;1,500&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+:root {
+    --font-color: #707070;
+    --font-color2: #fff;
+    --font-color3: #406f94be;
+    --font-color4: #235275;
+    --font-color5: #244b68;
+    --font-color6: rgb(214, 213, 213);
+
+    --default-font:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+    background-color: var(--font-color5);
+}
