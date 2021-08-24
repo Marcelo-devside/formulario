@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import { userSchema } from './Validar'
+import {Formik, Form, Field} from 'formik'
+
+
 import './Header.css'
 import './Form.css'
 
@@ -61,9 +64,33 @@ export default function Former(){
                                                  O objetivo do desafio foi elaborar um formulário de cadastro de currículos afim de serem armazenados em um banco de dados além de conter algumas regras de negócios como validações e integrações com API's.
                                              </p>               
                                      </section>
-                                     
-                   <form onSubmit= {handleSubmit, createUser}>               
-                       <section className='style-upform'>
+                    <Formik 
+                    validationSchema={userSchema}
+                    initialValues={{
+                       cpf: '',
+                       identidade: '', 
+                       nome: '', 
+                       profissao: '',
+                       PossuiVeiculo: '',
+                       habilitacao: '',
+                       CargoPretendido: '',
+                       birthday: '',
+                       EstadoCivil: '',
+                       sexo: '',
+                       cep: '',
+                       endereco: '',
+                       complemento: '',
+                       bairro: '',
+                       cidade: '',
+                       uf: '',
+                       telefone: '',
+                       celular: '',
+                       email: '',
+                    }}
+                    >
+                    {({errors})=> (
+                        <Form>
+                            <section className='style-upform'>
                             <h3>FORMULÁRIO DE CANDIDATURA</h3>
                             <div className='fields'>
                                     <div className='style-label2'>
@@ -71,8 +98,9 @@ export default function Former(){
                                             CPF
                                         </label>
                                     </div>
-                                        <input type="text" name='cpf' id='input-cpf'
+                                        <Field type="text" name='cpf' id='input-cpf'
                                         maxLength={11} onChange={handleInputChange} value={formValues.cpf || ''} />
+                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -80,7 +108,7 @@ export default function Former(){
                                             IDENTIDADE
                                         </label>
                                     </div>
-                                        <input type="text" name='identidade' id='input-identidade'
+                                        <Field type="text" name='identidade' id='input-identidade'
                                         maxLength={9} onChange={handleInputChange} value={formValues.identidade || ''} />
                                 </div>
                                 <div className='fields'>
@@ -89,7 +117,7 @@ export default function Former(){
                                             NOME
                                         </label>
                                     </div>
-                                        <input type="text" name='nome' id='input-nome' maxLength={37} onChange={handleInputChange} value={formValues.nome || ''} />
+                                        <Field type="text" name='nome' id='input-nome' maxLength={37} onChange={handleInputChange} value={formValues.nome || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -97,7 +125,7 @@ export default function Former(){
                                             PROFISSÃO
                                         </label>
                                     </div>
-                                        <input type="text" name='profissao' id='input-profissao' onChange={handleInputChange} value={formValues.profissao || ''} />
+                                        <Field type="text" name='profissao' id='input-profissao' onChange={handleInputChange} value={formValues.profissao || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -131,7 +159,7 @@ export default function Former(){
                                             CARGO PRETENDIDO
                                         </label>
                                     </div>
-                                        <input type="text" name='CargoPretendido' id='input-cargo' onChange={handleInputChange} value={formValues.CargoPretendido || ''} />
+                                        <Field type="text" name='CargoPretendido' id='input-cargo' onChange={handleInputChange} value={formValues.CargoPretendido || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -139,7 +167,7 @@ export default function Former(){
                                             DATA DE NASCIMENTO
                                         </label>
                                     </div>
-                                        <input type="date" name='birthday' id='input-nascimento' placeholder='ex: 15/08/2011' onChange={handleInputChange} value={formValues.birthday || ''} />
+                                        <Field type="date" name='birthday' id='input-nascimento' placeholder='ex: 15/08/2011' onChange={handleInputChange} value={formValues.birthday || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -176,7 +204,7 @@ export default function Former(){
                                             CEP
                                         </label>
                                     </div>
-                                        <input type="text" name='cep' id='input-cep' maxLength={8} onBlur={onBlurCep} onChange={handleInputChange} value={formValues.cep || ''} />
+                                        <Field type="text" name='cep' id='input-cep' maxLength={8} onBlur={onBlurCep} onChange={handleInputChange} value={formValues.cep || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -184,7 +212,7 @@ export default function Former(){
                                             ENDEREÇO
                                         </label>
                                     </div>
-                                        <input type="text" name='endereco' id='input-endereco' placeholder='ex: Nome da Rua, 56' onChange={handleInputChange} value={formValues.endereco || ''} />
+                                        <Field type="text" name='endereco' id='input-endereco' placeholder='ex: Nome da Rua, 56' onChange={handleInputChange} value={formValues.endereco || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -192,7 +220,7 @@ export default function Former(){
                                             COMPLEMENTO
                                         </label>
                                     </div>
-                                        <input type="text" name='comlemento' id='input-complemento' placeholder='ex: Bloco 2, AP 301' onChange={handleInputChange} value={formValues.complemento || ''} />
+                                        <Field type="text" name='complemento' id='input-complemento' placeholder='ex: Bloco 2, AP 301' onChange={handleInputChange} value={formValues.complemento || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -200,7 +228,7 @@ export default function Former(){
                                             BAIRRO
                                         </label>
                                     </div>
-                                        <input type="text" name='bairro' id='input-bairro' onChange={handleInputChange} value={formValues.bairro || ''} />
+                                        <Field type="text" name='bairro' id='input-bairro' onChange={handleInputChange} value={formValues.bairro || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -208,7 +236,7 @@ export default function Former(){
                                             CIDADE
                                         </label>
                                     </div>
-                                        <input type="text" name='cidade' id='input-cidade' onChange={handleInputChange} value={formValues.cidade || ''} />
+                                        <Field type="text" name='cidade' id='input-cidade' onChange={handleInputChange} value={formValues.cidade || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -216,7 +244,7 @@ export default function Former(){
                                             UF
                                         </label>
                                     </div>
-                                        <input type="text" name='uf' id='input-uf' onChange={handleInputChange} value={formValues.uf || ''} />
+                                        <Field type="text" name='uf' id='input-uf' onChange={handleInputChange} value={formValues.uf || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -224,7 +252,7 @@ export default function Former(){
                                             TELEFONE FIXO
                                         </label>
                                     </div>
-                                        <input type="text" name='telefone' id='input-telefone' placeholder='ex: (11) 1234-1829' onChange={handleInputChange} value={formValues.telefone || ''} />
+                                        <Field type="text" name='telefone' id='input-telefone' placeholder='ex: (11) 1234-1829' onChange={handleInputChange} value={formValues.telefone || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -232,7 +260,7 @@ export default function Former(){
                                             CELULAR
                                         </label>
                                     </div>
-                                        <input type="text" name='celular' id='input-celular' placeholder='ex: (11) 99345-1829' onChange={handleInputChange} value={formValues.celular || ''} />
+                                        <Field type="text" name='celular' id='input-celular' placeholder='ex: (11) 99345-1829' onChange={handleInputChange} value={formValues.celular || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -240,11 +268,13 @@ export default function Former(){
                                             E-MAIL
                                         </label>
                                     </div>
-                                        <input type="email" name='email' id='input-url' placeholder='ex: myname@example.com' onChange={handleInputChange} value={formValues.email || ''} />
+                                        <Field type="email" name='email' id='input-url' placeholder='ex: myname@example.com' onChange={handleInputChange} value={formValues.email || ''} />
                                 </div>
                             <button id='styleButton' type="submit">ENVIAR</button>
                         </section>
-                    </form>
+                        </Form>
+                    )}
+                    </Formik>
             </div>
         )
 }  
