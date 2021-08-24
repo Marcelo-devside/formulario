@@ -1,8 +1,28 @@
 import React, {useState} from 'react'
- 
+import { userSchema } from './Validar'
 import './Header.css'
 import './Form.css'
+
 export default function Former(){
+                                const createUser= async (e) => {
+                                    e.preventDefault()
+                                    let formData = {
+                                                cpf:e.target[0].value,
+                                                nome:e.target[1].value,
+                                        profissao:e.target[2].value,
+                                            birthday:e.target[3].value,
+                                                cep:e.target[4].value,
+                                        logradouro:e.target[5].value,
+                                        complemento:e.target[6].value,
+                                            bairro:e.target[7].value,
+                                            cidade:e.target[8].value,
+                                            celular:e.target[9].value,
+                                            email:e.target[10].value,
+                                    }
+                                    const isValid = await userSchema.isValid(formData)
+                                    console.log(isValid)
+                                   
+                                }
                                 const [formValues, setFormVelues] = useState({})
                                 const handleInputChange = (e) => {
                                     const {name, value} = e.target
@@ -42,7 +62,7 @@ export default function Former(){
                                              </p>               
                                      </section>
                                      
-                   <form onSubmit= {handleSubmit}>               
+                   <form onSubmit= {handleSubmit, createUser}>               
                        <section className='style-upform'>
                             <h3>FORMULÁRIO DE CANDIDATURA</h3>
                             <div className='fields'>
@@ -69,7 +89,7 @@ export default function Former(){
                                             NOME
                                         </label>
                                     </div>
-                                        <input type="text" name='nome' id='input-nome' onChange={handleInputChange} value={formValues.nome || ''} />
+                                        <input type="text" name='nome' id='input-nome' maxLength={37} onChange={handleInputChange} value={formValues.nome || ''} />
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
