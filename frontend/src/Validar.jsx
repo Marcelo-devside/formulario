@@ -14,8 +14,8 @@ export const userSchema = yup.object().shape({
     cidade: yup.string().required(),
     profissao: yup.string().required(),
     celular: yup.number().required().positive().integer().required(),
-    cep: yup.number().required().positive().integer().min(8).max(8).required(),
-    cpf: yup.number().required().positive().integer().required(),
+    cep: yup.number().required().positive().integer().min(8).required(),
+    cpf: yup.number().required().positive().integer().min(11).required(),
     birthday: yup.number().required().positive().integer().required(),
     email: yup.string().email().required(),
 });

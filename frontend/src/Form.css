@@ -26,7 +26,7 @@ h3 {
  font-size: 23px;
  font-weight: 800;
 }
-input, select {
+input, select, input.form-control, input.form-control:focus {
   display: block;
   opacity: 1;
   width: 430px;
@@ -46,6 +46,14 @@ input, select {
 input::placeholder {
   color: #194466;
   padding: 0 0 0 5px;
+}
+
+.error {
+  width: 100px;
+  border: 1px solid red;
+  position: absolute;
+  color: yellow;
+  font-size: 0.8em;
 }
 label, .style-label, .style-label2 {
   display: flex;
