@@ -2,12 +2,21 @@ import React, {useState} from 'react'
 import { userSchema } from './Validar'
 import {Formik, Form} from 'formik'
 import { TextField } from './TextField'
-import Axios from 'axios'
+import axios from 'axios'
 
 import './Header.css'
 import './Form.css'
 
 export default function Former(){
+    const addPerson = async (person) =>{
+        const user = await axios.post('http://localhost:3000',Formik)
+        if (user.status === 200) {
+            alert('Enviado com sucesso!')
+        } else {
+            alert('Erro não enviado!')
+        }
+        console.log(person)
+    }
                                 const [formValues, setFormVelues] = useState({})
                                 const handleInputChange = (e) => {
                                     const {name, value} = e.target
@@ -17,7 +26,9 @@ export default function Former(){
                                     e.preventDefault()
                                     const formData = new FormData(e.target)
                                     const data = Object.fromEntries(formData)
-                                    console.log('*** handleSubmit', data)
+                                   console.log(data)
+                                    // const person = data
+                                    // return person
                                 }
                                 function onBlurCep(e) {
                                     const {value} = e.target;
@@ -87,7 +98,6 @@ export default function Former(){
                                     </div>
                                         <TextField type="text" name='cpf' id='input-cpf'
                                         maxLength={11} onChange={handleInputChange} value={formValues.cpf || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -97,16 +107,14 @@ export default function Former(){
                                     </div>
                                         <TextField type="text" name='identidade' id='input-identidade'
                                         maxLength={9} onChange={handleInputChange} value={formValues.identidade || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
                                         <label htmlFor="input-nome">
-                                            NOME
+                                            NOME {errors.cpf && ( <>{errors.cpf}</>)}
                                         </label>
                                     </div>
                                         <TextField type="text" name='nome' id='input-nome' maxLength={37} onChange={handleInputChange} value={formValues.nome || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -115,7 +123,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='profissao' id='input-profissao' onChange={handleInputChange} value={formValues.profissao || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -129,7 +136,6 @@ export default function Former(){
                                                 <option value="nao">Não</option>
                                                 <option value="sim">Sim</option>
                                             </select>
-                                            {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -143,7 +149,6 @@ export default function Former(){
                                         <option value="nao">Não</option>
                                         <option value="sim">Sim</option>
                                     </select>
-                                    {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -152,7 +157,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='CargoPretendido' id='input-cargo' onChange={handleInputChange} value={formValues.CargoPretendido || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -161,7 +165,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="date" name='birthday' id='input-nascimento' placeholder='ex: 15/08/2011' onChange={handleInputChange} value={formValues.birthday || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -176,7 +179,6 @@ export default function Former(){
                                         <option value="casado">Casado(a)</option>
                                         <option value="divorciado">Divorciado(a)</option>
                                     </select>
-                                    {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -192,7 +194,6 @@ export default function Former(){
                                         <option value="outro gênero">Outro gênero</option>
                                         <option value="optou nao declarar">Não declarar</option>
                                     </select>
-                                    {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -201,7 +202,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='cep' id='input-cep' maxLength={8} onBlur={onBlurCep} onChange={handleInputChange} value={formValues.cep || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -210,7 +210,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='endereco' id='input-endereco' placeholder='ex: Nome da Rua, 56' onChange={handleInputChange} value={formValues.endereco || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -219,7 +218,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='complemento' id='input-complemento' placeholder='ex: Bloco 2, AP 301' onChange={handleInputChange} value={formValues.complemento || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -228,7 +226,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='bairro' id='input-bairro' onChange={handleInputChange} value={formValues.bairro || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -237,7 +234,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='cidade' id='input-cidade' onChange={handleInputChange} value={formValues.cidade || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -246,7 +242,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='uf' id='input-uf' onChange={handleInputChange} value={formValues.uf || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -255,7 +250,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='telefone' id='input-telefone' placeholder='ex: (11) 1234-1829' onChange={handleInputChange} value={formValues.telefone || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -264,7 +258,6 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="text" name='celular' id='input-celular' placeholder='ex: (11) 99345-1829' onChange={handleInputChange} value={formValues.celular || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
                                 <div className='fields'>
                                     <div className='style-label'>
@@ -273,9 +266,8 @@ export default function Former(){
                                         </label>
                                     </div>
                                         <TextField type="email" name='email' id='input-url' placeholder='ex: myname@example.com' onChange={handleInputChange} value={formValues.email || ''} />
-                                        {errors.cpf && ( <div>{errors.cpf}</div>)}
                                 </div>
-                            <button id='styleButton' type="submit">ENVIAR</button>
+                            <button id='styleButton' type="submit" onClick = {() =>addPerson()}>ENVIAR</button>
                         </section>
                         </Form>
                     )}

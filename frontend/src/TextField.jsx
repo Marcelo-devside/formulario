@@ -6,12 +6,11 @@ export const TextField = ({label,...props}) => {
     return (
         <div className='fields'>
             <div className='style-label'>
-            <label htmlFor={field.name}>{label}</label>
+            <span htmlFor={field.name}>{label}<ErrorMessage component= 'span' name={field.name} className="error" /></span>
             </div>
             <input className={`form-control shadow-none ${meta.touched && meta.erro && 'is-invalid'}`}
             {...field} {...props}
             autoComplete="off" />
-            <ErrorMessage component= 'div' name={field.name} className="error" />
         </div>
 
     )
