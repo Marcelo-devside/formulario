@@ -1,0 +1,115 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "API de Cadastro de Currículos",
+        "description": "Documentação do Projeto",
+        "version": "0.0.1"
+    },
+    "Servers": [
+        {
+            "url": "http://localhost:5000",
+            "description": "ambiente de desenvolvimento"
+        }
+    ],
+    "paths": {
+        "/register": {
+            "post": {
+             "summary": "Cadastro de Cadidato",
+             "description": "Rota de Cadastro de Usuário, recebe: cpf, identidade, nome, profissao,   PossuiVeiculo, habilitacao, CargoPretendido, birthday, EstadoCivil, sexo, cep, endereco, complemento, bairro, cidade, uf, telefone, celular, email ",
+             "tags": ["candidato"],
+             "requestBody": {
+                 "content": {
+                     "application/json": {
+                         "schema":{
+                             "properties": {
+                                "cpf": {
+                                    "type": "string"
+                                },
+                                "identidade": {
+                                    "type": "string"
+                                },  
+                                "nome": {
+                                    "type": "string"
+                                }, 
+                                "profissao": {
+                                    "type": "string"
+                                }, 
+                                "PossuiVeiculo": {
+                                    "type": "string"
+                                }, 
+                                "habilitacao": {
+                                    "type": "string"
+                                },
+                                "CargoPretendido": {
+                                    "type": "string"
+                                },
+                                "birthday": {
+                                    "type": "string"
+                                },
+                                "EstadoCivil": {
+                                    "type": "string"
+                                }, 
+                                "sexo": {
+                                    "type": "string"
+                                }, 
+                                "cep": {
+                                    "type": "string"
+                                }, 
+                                "endereco": {
+                                    "type": "string"
+                                }, 
+                                "complemento": {
+                                    "type": "string"
+                                },
+                                "bairro": {
+                                    "type": "string"
+                                },
+                                "cidade": {
+                                    "type": "string"
+                                },
+                                "uf": {
+                                    "type": "string"
+                                },
+                                "telefone": {
+                                    "type": "string"
+                                }, 
+                                "celular": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                } 
+                             }
+                         },
+                         "exemples": {
+                             "Candidato": {
+                                 "value": {
+                                    "cpf": "854.695.246-21",
+                                    "identidade": "17.283.522-7",  
+                                    "nome": "Anderson Tridade Cardoso", 
+                                    "profissao": "arquiteto", 
+                                    "PossuiVeiculo": "sim", 
+                                    "habilitacao": "sim",
+                                    "CargoPretendido": "desenvolvedor full stack",
+                                    "birthday": "12/06/1989",
+                                    "EstadoCivil": "solteiro", 
+                                    "sexo": "masculino", 
+                                    "cep": "59114-011", 
+                                    "endereco": "Travessa Carlito Malaquias da Silva", 
+                                    "complemento": "quadra 12, número 97", 
+                                    "bairro": "Nossa Senhora da Apresentação",
+                                    "cidade": "Natal",
+                                    "uf": "RN",
+                                    "telefone": "(88) 3174-6985", 
+                                    "celular": "(88) 9 8521-6478",
+                                    "email": "ricardo@exemplo.com"
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+            }
+        }
+   }  
+}
