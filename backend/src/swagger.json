@@ -3,87 +3,94 @@
     "info":{
         "title": "API de Cadastro de Currículos",
         "description": "Documentação do Projeto",
-        "version": "0.0.1"
+        "termsOfService": "https://swagger.io/specification/",
+        "version": "1.0.0",
+        "contact":{
+            "email": "fulano@exemplo.com"
+        }
     },
-    "Servers": [
+    "servers": [
         {
-            "url": "http://localhost:5000",
+            "url": "http://localhost:5000/v1",
             "description": "ambiente de desenvolvimento"
         }
     ],
     "paths": {
         "/register": {
             "post": {
-             "summary": "Cadastro de Cadidato",
+             "summary": "Cadastro de Cadidatos",
              "description": "Rota de Cadastro de Usuário, recebe: cpf, identidade, nome, profissao,   PossuiVeiculo, habilitacao, CargoPretendido, birthday, EstadoCivil, sexo, cep, endereco, complemento, bairro, cidade, uf, telefone, celular, email ",
              "tags": ["candidato"],
              "requestBody": {
                  "content": {
-                     "application/json": {
-                         "schema":{
-                             "properties": {
-                                "cpf": {
-                                    "type": "string"
-                                },
-                                "identidade": {
-                                    "type": "string"
-                                },  
-                                "nome": {
-                                    "type": "string"
-                                }, 
-                                "profissao": {
-                                    "type": "string"
-                                }, 
-                                "PossuiVeiculo": {
-                                    "type": "string"
-                                }, 
-                                "habilitacao": {
-                                    "type": "string"
-                                },
-                                "CargoPretendido": {
-                                    "type": "string"
-                                },
-                                "birthday": {
-                                    "type": "string"
-                                },
-                                "EstadoCivil": {
-                                    "type": "string"
-                                }, 
-                                "sexo": {
-                                    "type": "string"
-                                }, 
-                                "cep": {
-                                    "type": "string"
-                                }, 
-                                "endereco": {
-                                    "type": "string"
-                                }, 
-                                "complemento": {
-                                    "type": "string"
-                                },
-                                "bairro": {
-                                    "type": "string"
-                                },
-                                "cidade": {
-                                    "type": "string"
-                                },
-                                "uf": {
-                                    "type": "string"
-                                },
-                                "telefone": {
-                                    "type": "string"
-                                }, 
-                                "celular": {
-                                    "type": "string"
-                                },
-                                "email": {
-                                    "type": "string"
-                                } 
-                             }
-                         },
-                         "exemples": {
-                             "Candidato": {
-                                 "value": {
+                    "application/json": {
+                        "schema":{
+                            "Cadastro":{
+                                "type": "object",
+                                "properties":{
+                                 "cpf": {
+                                     "type": "string"
+                                 },
+                                 "identidade": {
+                                     "type": "string"
+                                 },  
+                                 "nome": {
+                                     "type": "string"
+                                 }, 
+                                 "profissao": {
+                                     "type": "string"
+                                 }, 
+                                 "PossuiVeiculo": {
+                                     "type": "string"
+                                 }, 
+                                 "habilitacao": {
+                                     "type": "string"
+                                 },
+                                 "CargoPretendido": {
+                                     "type": "string"
+                                 },
+                                 "birthday": {
+                                     "type": "string"
+                                 },
+                                 "EstadoCivil": {
+                                     "type": "string"
+                                 }, 
+                                 "sexo": {
+                                     "type": "string"
+                                 }, 
+                                 "cep": {
+                                     "type": "string"
+                                 }, 
+                                 "endereco": {
+                                     "type": "string"
+                                 }, 
+                                 "complemento": {
+                                     "type": "string"
+                                 },
+                                 "bairro": {
+                                     "type": "string"
+                                 },
+                                 "cidade": {
+                                     "type": "string"
+                                 },
+                                 "uf": {
+                                     "type": "string"
+                                 },
+                                 "telefone": {
+                                     "type": "string"
+                                 }, 
+                                 "celular": {
+                                     "type": "string"
+                                 },
+                                 "email": {
+                                     "type": "string"
+                                 } 
+                              }
+                           }
+                          },
+                          "examples": {
+                              "candidato": {
+                                "value": {
                                     "cpf": "854.695.246-21",
                                     "identidade": "17.283.522-7",  
                                     "nome": "Anderson Tridade Cardoso", 
@@ -106,10 +113,78 @@
                                  }
                              }
                          }
-                     }
-                 }
-             }
+                    }
+                }
             }
         }
-   }  
-}
+    }
+ },
+   "components": {
+       "schemas":{
+           "Cadastro":{
+               "type": "object",
+               "properties":{
+                "cpf": {
+                    "type": "string"
+                },
+                "identidade": {
+                    "type": "string"
+                },  
+                "nome": {
+                    "type": "string"
+                }, 
+                "profissao": {
+                    "type": "string"
+                }, 
+                "PossuiVeiculo": {
+                    "type": "string"
+                }, 
+                "habilitacao": {
+                    "type": "string"
+                },
+                "CargoPretendido": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "string"
+                },
+                "EstadoCivil": {
+                    "type": "string"
+                }, 
+                "sexo": {
+                    "type": "string"
+                }, 
+                "cep": {
+                    "type": "string"
+                }, 
+                "endereco": {
+                    "type": "string"
+                }, 
+                "complemento": {
+                    "type": "string"
+                },
+                "bairro": {
+                    "type": "string"
+                },
+                "cidade": {
+                    "type": "string"
+                },
+                "uf": {
+                    "type": "string"
+                },
+                "telefone": {
+                    "type": "string"
+                }, 
+                "celular": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                } 
+             }
+          }
+       }
+   }
+} 
+
+

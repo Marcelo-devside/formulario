@@ -178,6 +178,7 @@ export default function Former(){
                                         <option value="solteiro">Solteiro(a)</option>
                                         <option value="casado">Casado(a)</option>
                                         <option value="divorciado">Divorciado(a)</option>
+                                        <option value="viúvo">Viúvo(a)</option>
                                     </select>
                                 </div>
                                 <div className='fields'>
