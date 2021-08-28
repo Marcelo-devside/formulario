@@ -47,9 +47,9 @@ module.exports = {
             newPerson.save((err, savedPerson) =>{
                 if (err) {
                     console.log(err)
-                    return res.status(500).send('Erro ao salvar no Banco de Dados!')
+                    return res.status(500).json({message:"Erro ao salvar no Banco de Dados!"})
                 }
-                return res.status(200).send(savedPerson)
+                return res.status(200).json({massege:"OK enviado com sucesso!"})
             })
     }
 }

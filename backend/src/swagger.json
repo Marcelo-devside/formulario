@@ -25,68 +25,7 @@
                  "content": {
                     "application/json": {
                         "schema":{
-                            "Cadastro":{
-                                "type": "object",
-                                "properties":{
-                                 "cpf": {
-                                     "type": "string"
-                                 },
-                                 "identidade": {
-                                     "type": "string"
-                                 },  
-                                 "nome": {
-                                     "type": "string"
-                                 }, 
-                                 "profissao": {
-                                     "type": "string"
-                                 }, 
-                                 "PossuiVeiculo": {
-                                     "type": "string"
-                                 }, 
-                                 "habilitacao": {
-                                     "type": "string"
-                                 },
-                                 "CargoPretendido": {
-                                     "type": "string"
-                                 },
-                                 "birthday": {
-                                     "type": "string"
-                                 },
-                                 "EstadoCivil": {
-                                     "type": "string"
-                                 }, 
-                                 "sexo": {
-                                     "type": "string"
-                                 }, 
-                                 "cep": {
-                                     "type": "string"
-                                 }, 
-                                 "endereco": {
-                                     "type": "string"
-                                 }, 
-                                 "complemento": {
-                                     "type": "string"
-                                 },
-                                 "bairro": {
-                                     "type": "string"
-                                 },
-                                 "cidade": {
-                                     "type": "string"
-                                 },
-                                 "uf": {
-                                     "type": "string"
-                                 },
-                                 "telefone": {
-                                     "type": "string"
-                                 }, 
-                                 "celular": {
-                                     "type": "string"
-                                 },
-                                 "email": {
-                                     "type": "string"
-                                 } 
-                              }
-                           }
+                            "$ref": "#/components/schemas/Cadastro"
                           },
                           "examples": {
                               "candidato": {
@@ -113,6 +52,22 @@
                                  }
                              }
                          }
+                    }
+                }
+            },
+            "responses":{
+                "404": {
+                    "description": "Erro ao salvar no Banco de Dados!"
+                },
+                "200": {
+                    "description": "OK enviado com sucesso!",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/Cadastro"
+                            }
+                        }
                     }
                 }
             }
