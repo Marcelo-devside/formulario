@@ -23,3 +23,6 @@ Além disso criei o arquivo **.env.example** para servir de exemplo da url de co
 <!-- https://www.npmjs.com/package/swagger-ui-express -->
 **npm install swagger-ui-express**
 
+# instalando o cors para o backend aceite a conexão com o frontend 
+**npm i cors**
+

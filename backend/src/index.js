@@ -2,6 +2,7 @@
 
 const express = require ('express')
 const mongoose = require ('mongoose')
+const cors = require ('cors')
 const swaggerUi = require ('swagger-ui-express')
 const routes = require ('./routes')
 const swaggerDocs =  require ('./swagger.json')
@@ -12,7 +13,7 @@ connectToDatabase()
 const app = express ()
 const port = 5000
 
-
+app.use(cors())
 app.use(express.json())
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use("/v1", routes)
