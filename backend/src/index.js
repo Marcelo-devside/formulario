@@ -18,5 +18,5 @@ app.use(cors())
 app.use(express.json())
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use("/", routes)
-app.listen(process.env.PORT || port, ()=> {console.log('rodando')})
+app.listen(process.env.PORT || port, ()=> {console.log('rodando...')})
 
