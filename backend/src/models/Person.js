@@ -15,7 +15,7 @@ const PersonSchema = new mongoose.Schema({
                        complemento: {type:String, unique:false, required:true},
                        bairro: {type:String, unique:false, required:true},
                        cidade: {type:String, unique:false, required:true},
-                       uf: {type:String, unique:false, required:false},
+                       uf: {type:String, unique:false, required:true},
                        telefone: {type:String, unique:false, required:false},
                        celular: {type:String, unique:false, required:true},
                        email: {type:String, unique:true, required:true}

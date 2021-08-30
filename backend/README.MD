@@ -26,3 +26,5 @@ Além disso criei o arquivo **.env.example** para servir de exemplo da url de co
 # instalando o cors para o backend aceite a conexão com o frontend 
 **npm i cors**
 
+# para rodar tanto o frontend quanto o backend basta digitar o comanto dentro das respectivas pastas 
+**npm start**

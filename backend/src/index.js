@@ -13,9 +13,10 @@ connectToDatabase()
 const app = express ()
 const port = 5000
 
+
 app.use(cors())
 app.use(express.json())
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
-app.use("/v1", routes)
-app.listen(port, ()=> {console.log('rodando')})
+app.use("/", routes)
+app.listen(process.env.PORT || port, ()=> {console.log('rodando')})
 
