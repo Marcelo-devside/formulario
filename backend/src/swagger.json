@@ -11,7 +11,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:5000/v1",
+            "url": "APP_URL",
             "description": "ambiente de desenvolvimento"
         }
     ],
