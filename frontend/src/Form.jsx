@@ -9,7 +9,7 @@ import './Form.css'
 
 export default function Former(){
     const addPerson = async (person) =>{
-        const user = await axios.post('http://localhost:5000/register/',Form)
+        const user = await axios.post('http://localhost:5000/register',Form)
         if (user.status === 200) {
             alert('Cadastro enviado com SUCESSO!')
         } else {
@@ -24,7 +24,8 @@ export default function Former(){
                                 }
                                 const handleSubmit = (e) => {
                                     e.preventDefault()
-                                    const formData = new FormData(e.target)
+                                    alert(JSON.stringify(addPerson))
+                                    const formData = new FormData(e.target.value)
                                     const data = Object.fromEntries(formData)
                                    console.log(data)
                                     const person = data
@@ -83,10 +84,11 @@ export default function Former(){
                        email: '',
                     }}
                     >
+                        
                     {({errors})=> (
                         <Form onSubmit={handleSubmit}>
                             <section className='style-upform'>
-                            <h3>FORMULÁRIO DE CANDIDATURA</h3>
+                            <h3>FORMULÁRIO DO CANDIDATO</h3>
                             <div className='fields'>
                                     <div className='style-label2'>
                                         <label htmlFor="input-cpf">
@@ -108,7 +110,7 @@ export default function Former(){
                                 <div className='fields'>
                                     <div className='style-label'>
                                         <label htmlFor="input-nome">
-                                            NOME {errors.cpf && ( <>{errors.cpf}</>)}
+                                            NOME 
                                         </label>
                                     </div>
                                         <TextField type="text" name='nome' id='input-nome' maxLength={44}
@@ -266,11 +268,11 @@ export default function Former(){
                                     </div>
                                         <TextField type="email" name='email' id='input-url' maxLength={40} mask="email" placeholder='ex: myname@example.com' onChange={handleInputChange} value={formValues.email || ''} />
                                 </div>
-                            <button id='styleButton' type="submit" onClick = {() =>addPerson()}>ENVIAR</button>
+                            <button id='styleButton' type="submit" onClick = {() =>addPerson()} /*disabled={ !dirt || !isValid}*/>ENVIAR</button>
                         </section>
                         </Form>
                     )}
                     </Formik>
             </div>
         )
-}  
+}

@@ -35,7 +35,7 @@ export const TextField = ({label, mask,...props}) => {
             </div>
             <input className={`form-control shadow-none ${meta.touched && meta.erro && 'is-invalid'}`}
             {...field} {...props}
-            autoComplete="off" onKeyUp={handleKeyUp}  />
+            autoComplete="off" onKeyUp={handleKeyUp} />
         </div>
 
     )

@@ -50,9 +50,8 @@ input::placeholder {
   color: #194466;
   padding: 0 0 0 5px;
 }
-
 .error {
-  width: 60px;
+  width: 138px;
   border-radius: 5px;
   /* border: 1px solid yellow; */
   background-color:rgba(167, 7, 7, 0.397);
