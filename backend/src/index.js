@@ -12,10 +12,9 @@ const connectToDatabase = require ('./database')
 connectToDatabase()
 const app = express ()
 
-
 app.use(cors())
 app.use(express.json())
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use("/", routes)
-app.listen( process.env.PORT, ()=> {console.log('rodando...')})
+app.listen( process.env.PORT || 5000 )
 
